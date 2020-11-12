@@ -25,7 +25,7 @@ function App() {
       timestamp:firebase.firestore.FieldValue.serverTimestamp()
   
     })
-    //setTodos([...todos, input]);
+    
     setInput(" ");
   }
   return (
