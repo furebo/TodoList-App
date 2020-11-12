@@ -29,7 +29,9 @@ class App extends Component {
   render(){
     return (
  <div>
-   <h1>my todo app</h1>
+      <div>
+      {this.state.user ? (<Home />) : (<Login />)}
+      </div>
  </div>
     );
   }
