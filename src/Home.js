@@ -4,6 +4,7 @@ import { Button, FormControl, Input, InputLabel } from '@material-ui/core';
 import fire from './firebase';
 import firebase from 'firebase';//bcse we need to add timestamp
 function App() {
+  
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
 
@@ -28,11 +29,40 @@ function App() {
     
     setInput(" ");
   }
+
+  const logout = ()=>{
+    fire.auth().signOut();
+  };
+  const logoutBtnStyles = {
+    marginTop:"20px",
+    width:"120px",
+    height:"40px",
+    borderRadius:"5px"
+};
+const headerStyle = {
+  height:"80px",
+  backgroundColor:"pink"
+};
+const todostyle = {
+  marginLeft:"400px"
+};
+const titlestyle = {
+  color:"steelBlue"
+};
+const footerstyle = {
+  display:"flex",
+  flexDirection:"column",
+  height:"auto",
+  backgroundColor:"silver"
+}
+
   return (
     <div className="App">
-     <h1>List of Todos on {Date()} </h1>
+      <div style={headerStyle}>
+      <button style={logoutBtnStyles} onClick={logout}>Logout</button>
+      </div>
+     <h1 style={titlestyle}>List of Todos on {Date()} </h1>
      <form>
-       
      <FormControl>
        <InputLabel >: Enter your Todo Here</InputLabel>
        <Input value = {input} onChange = {e =>setInput(e.target.value)} />
@@ -41,12 +71,16 @@ function App() {
      
      </form>
 
-     <ul>
+     <ul style={todostyle}>
        {todos.map(todo => (
          <Todo todo={todo}/>
          //<li>{todo}</li>
        ))}
      </ul>
+     <div style={footerstyle}>
+       <h2>Contact: +250784450008 </h2>
+       <h2>Email: furebodidace582@gmail.com</h2>
+     </div>
     </div>
   );
 }
