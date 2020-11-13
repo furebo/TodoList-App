@@ -81,9 +81,17 @@ class Login extends Component {
 
         };
         const titleStyle = {
-            marginRight:"20px",
+            marginLeft:"280px",
             color:"steelblue"
-        }
+        };
+        const footerstyle = {
+            marginTop:"100px",
+            display:"flex",
+            flexDirection:"column",
+            height:"auto",
+            backgroundColor:"silver",
+            paddingLeft:"550px"
+          }
 
         return(
                <div>
@@ -110,6 +118,10 @@ class Login extends Component {
                     <button style = {logStyles} onClick = {this.login}>Login</button>
                     <button style = {logStyles} onClick = {this.signup}>Signup</button>
                 </form>
+                <div style={footerstyle}>
+                   <h2>Contact: +250784450008 </h2>
+                   <h2>Email: furebodidace582@gmail.com</h2>
+                 </div>
            </div>
         )
   }
